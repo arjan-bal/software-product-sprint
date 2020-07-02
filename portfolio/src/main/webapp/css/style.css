@@ -1,14 +1,75 @@
-.carousel-content {
-    z-index: 20;
+
+.avatar {
+   border-radius: 50%;
+  }
+
+  @media (max-width: 767px) and (orientation : portrait) {
+    .avatar-lg {
+      width: 100px;
+      float: none!important;
+    }
+  
+    .carousel-content .p {
+      font-size: 1rem!important;
+    }
+  
+    .carousel-content .display-4{ 
+      font-size: 2rem!important;
+    }
+  
+    .carousel-content {
+      top: 20%!important;
+    }
+  
+    .carousel-content div {
+      font-size: 1rem!important;
+    }
+  
+  }
+  
+  @media (max-height: 576px) and (orientation : landscape){
+  
+    .carousel-content .p {
+      font-size: 1rem!important;
+    }
+  
+    .carousel-content .display-4{ 
+      font-size: 2rem!important;
+    }
+  
+    .carousel-content {
+      top: 20%!important;
+    }
+  
+    .carousel-content div {
+      font-size: 1rem!important;
+    }
+  
+  }
+
+  .carousel-content {
     position: absolute;
-    /* top: 20%; */
-    /* left: 50%; */
-    /* width: 30%; */
-    color: white;
-    height: 100px;
-    width: 100%;
-    left: 50%;
-    margin-left: -50%;
-    top: 20%;
-    margin-top: -50px;
+    right: 0;
+    top: 30%;
+    left: 0;
+    z-index: 15;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+  }
+  
+  .pull-right {
+    float: right;
+  }
+  .carousel-indicators, .carousel-control-prev, .carousel-control-next {
+    z-index: 30;
+  }
+
+  .pr-1 {
+      color: white;
   }
