@@ -12,13 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems);
-  elems = document.querySelectorAll('.carousel');
-  instances = M.Carousel.init(elems, {
-    fullWidth: true
-  });
+$('.navbar-collapse a').click(function () {
+  $(".navbar-collapse").collapse('hide');
 });
 
 /**
