@@ -3,7 +3,11 @@
    border-radius: 50%;
   }
 
-  @media (max-width: 767px) and (orientation : portrait) {
+.carousel-item img {
+    height: 700px;
+}
+
+@media (max-width: 767px) and (orientation : portrait) {
     .avatar-lg {
       width: 100px;
       float: none!important;
