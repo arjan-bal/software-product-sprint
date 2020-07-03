@@ -16,6 +16,13 @@ $('.navbar-collapse a').click(function () {
   $(".navbar-collapse").collapse('hide');
 });
 
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $(".fixed-top");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
+});
+
 /**
  * Adds a random greeting to the page.
  */
