@@ -2,6 +2,16 @@ html {
   scroll-behavior: smooth;
 }
 
+.view img{
+  height: 100%;
+  width: 100%;
+}
+
+footer {
+  background-color: #1c2331;
+  padding-top: 2em;
+}
+
 .avatar {
   border-radius: 50%;
 }
