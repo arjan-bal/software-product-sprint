@@ -2,18 +2,17 @@ html {
   scroll-behavior: smooth;
 }
 
-.view img{
-  height: 100%;
-  width: 100%;
-}
-
 footer {
   background-color: #1c2331;
   padding-top: 2em;
 }
 
-.avatar {
-  border-radius: 50%;
+.carousel-item img {
+  height: 100vh;
+}
+
+#carousel-example-2 .carousel-inner .carousel-item .view img {
+  height: 66vh;
 }
 
 .fixed-top.scrolled {
@@ -21,11 +20,7 @@ footer {
   transition: background-color 200ms linear;
 }
 
-.carousel-item img {
-  height: 700px;
-}
-
-.view img {
+.overlay {
   height: 400px;
 }
 
