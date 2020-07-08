@@ -38,14 +38,14 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-async function getAnnouncements() {
+async function getComments() {
   const response = await fetch('/data');
-  const announcements = await response.json();
-  const announcementsListElement = document.getElementById('announcements-container');
+  const comments = await response.json();
+  const commentsListElement = document.getElementById('comments-container');
 
-  for (let i = 0; i <announcements.length; ++i) {
-    announcementsListElement.appendChild(
-      createListElement(announcements[i])
+  for (let i = 0; i <comments.length; ++i) {
+    commentsListElement.appendChild(
+      createListElement(comments[i])
     );
   }
 }

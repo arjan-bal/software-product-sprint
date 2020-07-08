@@ -28,14 +28,14 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    ArrayList<String> announcements = new ArrayList<String>();
-    announcements.add("The decepticons must be defeated");
-    announcements.add("I am the Batman");
-    announcements.add("Out of Ideas");
+    ArrayList<String> comments = new ArrayList<String>();
+    comments.add("The decepticons must be defeated");
+    comments.add("I am the Batman");
+    comments.add("Out of Ideas");
 
     // convert array to JSON
     Gson gson = new Gson();
-    String json = gson.toJson(announcements);
+    String json = gson.toJson(comments);
     
     // Send the JSON as the response
     response.setContentType("application/json;");
