@@ -38,8 +38,21 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-async function getName() {
+async function getAnnouncements() {
   const response = await fetch('/data');
-  const name = await response.text();
-  document.getElementById('name-container').innerText = name;
+  const announcements = await response.json();
+  const announcementsListElement = document.getElementById('announcements-container');
+
+  for (let i = 0; i <announcements.length; ++i) {
+    announcementsListElement.appendChild(
+      createListElement(announcements[i])
+    );
+  }
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
