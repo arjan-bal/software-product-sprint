@@ -25,14 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
+  private  static ArrayList<String> comments = new ArrayList<String>();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    ArrayList<String> comments = new ArrayList<String>();
-    comments.add("The decepticons must be defeated");
-    comments.add("I am the Batman");
-    comments.add("Out of Ideas");
-
     // convert array to JSON
     Gson gson = new Gson();
     String json = gson.toJson(comments);
@@ -40,5 +36,22 @@ public class DataServlet extends HttpServlet {
     // Send the JSON as the response
     response.setContentType("application/json;");
     response.getWriter().println(json);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String message = request.getParameter("message");
+    String author = request.getParameter("name");
+
+    if (message == null || author == null) {
+      System.err.println("Message or name field missing");
+      response.setContentType("text/html");
+      response.getWriter().println("Message or name field missing.");
+      return;
+    }
+
+    String messageAndAuthor = message + " --" + author;
+    comments.add(messageAndAuthor);
+    response.sendRedirect("/index.html");
   }
 }
