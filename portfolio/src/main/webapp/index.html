@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="img/avatar.png" type="image/x-icon"> 
@@ -60,23 +60,23 @@
     <div id="slides" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="img/carousal/01.jpg">
+          <img class="d-block w-100" src="img/carousal/01.jpg" alt="carousel">
         </div>
 
         <div class="carousel-item">
-          <img class="d-block w-100" src="img/carousal/03.jpg">
+          <img class="d-block w-100" src="img/carousal/03.jpg" alt="carousel">
         </div>
 
         <div class="carousel-item">
-          <img class="d-block w-100" src="img/carousal/04.jpg">
+          <img class="d-block w-100" src="img/carousal/04.jpg" alt="carousel">
         </div>
 
         <div class="carousel-item">
-          <img class="d-block w-100" src="img/carousal/06.jpg">
+          <img class="d-block w-100" src="img/carousal/06.jpg" alt="carousel">
         </div>
 
         <div class="carousel-item">
-          <img class="d-block w-100" src="img/carousal/07.jpg">
+          <img class="d-block w-100" src="img/carousal/07.jpg" alt="carousel">
         </div>        
       </div>
 
@@ -91,19 +91,19 @@
               <strong>Arjan Singh Bal</strong>
             </h1>
 
-            <p class="mb-0 p" class="h5 carousel-text">
+            <p class="mb-0 p h5 carousel-text">
               I'm like a tree
             </p>
 
-            <p class="mb-0 p" class="h5 carousel-text">
+            <p class="mb-0 p h5 carousel-text">
               My leaves might change color 
             </p>
 
-            <p class="mb-0 p" class="h5 carousel-text">
+            <p class="mb-0 p h5 carousel-text">
               But my roots are the same 
             </p>
 
-            <p class="mb-0 p" class="carousel-text-author">
+            <p class="mb-0 p carousel-text-author">
               ~ Rose Namajunas 
             </p>
 
@@ -285,7 +285,7 @@
           <div class="carousel-inner" role="listbox">            
             <div class="carousel-item active">
               <div class="view">
-                <img class="d-block w-100" src="img/cp/codevita.jpg">
+                <img class="d-block w-100" src="img/cp/codevita.jpg" alt="codevita">
                 <!-- <div class="mask rgba-black-slight"></div> -->
               </div>
               <div class="carousel-caption">
@@ -296,7 +296,7 @@
   
             <div class="carousel-item">
               <div class="view">
-                <img class="d-block w-100" src="img/cp/codevita2.jpeg">
+                <img class="d-block w-100" src="img/cp/codevita2.jpeg" alt="codevita">
                 <!-- <div class="mask rgba-black-slight"></div> -->
               </div>
               <div class="carousel-caption">
@@ -308,7 +308,7 @@
             <div class="carousel-item">
               <!--Mask color-->
               <div class="view">
-                <img class="d-block w-100" src="img/cp/icpc-2019.jpg">
+                <img class="d-block w-100" src="img/cp/icpc-2019.jpg" alt="icpc">
                 <!-- <div class="mask rgba-black-slight"></div> -->
               </div>
               <div class="carousel-caption">
@@ -320,7 +320,7 @@
             <div class="carousel-item">
               <!--Mask color-->
               <div class="view">
-                <img class="d-block w-100" src="img/cp/cc.png">
+                <img class="d-block w-100" src="img/cp/cc.png" alt="codechef">
                 <!-- <div class="mask rgba-black-slight"></div> -->
               </div>
               <div class="carousel-caption">
@@ -332,7 +332,7 @@
             <div class="carousel-item">
               <!--Mask color-->
               <div class="view">
-                <img class="d-block w-100" src="img/cp/hackerrank.png">
+                <img class="d-block w-100" src="img/cp/hackerrank.png" alt="hackerrank">
                 <!-- <div class="mask rgba-black-slight"></div> -->
               </div>
               <div class="carousel-caption text-dark">
@@ -477,10 +477,42 @@
         <h2 class="text-center text-uppercase my-5 pt-5 wow fadeIn" data-wow-delay="0.2s">
           <strong>Comments</strong>
         </h2>
+        <!--  Comment List    -->
         <p 
         id="comments-container" 
         class="w-responsive mx-auto wow fadeIn my-5 text-left" 
         data-wow-delay="0.2s"></p>
+
+        <!--  Submit Comment  -->
+        <div class="card">
+          <h5 class="card-header text-center py-4">
+            <strong>Leave a comment</strong>
+          </h5>
+          <!--Card content-->
+          <div class="card-body px-lg-5 pt-0">
+            <!-- Form -->
+            <form class="text-center" style="color: #757575;" action="/data">
+              <!-- Name -->
+              <div class="md-form mt-3">
+                <input type="text" id="name" class="form-control">
+                <label for="name">Name</label>
+              </div>
+
+              <!--Message-->
+              <div class="md-form">
+                <textarea id="message" class="form-control md-textarea" rows="3"></textarea>
+                <label for="message">Message</label>
+              </div>
+
+              <!-- Send button -->
+              <button
+              class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+              type="submit">Send</button>
+            </form>
+            <!-- Form -->
+          </div>
+        </div>
+        <!-- Material form contact -->
       </section>
     </div>
 
