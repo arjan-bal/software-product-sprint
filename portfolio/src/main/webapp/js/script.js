@@ -39,20 +39,20 @@ function addRandomGreeting() {
 }
 
 async function getComments() {
-  const response = await fetch('/data');
+  const response = await fetch('/comments');
   const comments = await response.json();
   const commentsListElement = document.getElementById('comments-container');
 
   for (let i = 0; i <comments.length; ++i) {
     commentsListElement.appendChild(
-      createListElement(comments[i])
+      createParaElement(comments[i].message + " --" + comments[i].author)
     );
   }
 }
 
 /** Creates an <li> element containing text. */
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function createParaElement(text) {
+  const paraElement = document.createElement('p');
+  paraElement.innerText = text;
+  return paraElement;
 }
