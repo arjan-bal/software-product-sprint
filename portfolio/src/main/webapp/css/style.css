@@ -1,0 +1,110 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.carousel-text-author {
+  padding-inline-start: 5em;
+}
+
+footer {
+  background-color: #1c2331;
+  padding-top: 2em;
+}
+
+.carousel-item img {
+  height: 100vh;
+}
+
+#carousel-example-2 .carousel-inner .carousel-item .view img {
+  height: 66vh;
+}
+
+.fixed-top.scrolled {
+  background-color: #343a40 !important;
+  transition: background-color 200ms linear;
+}
+
+.my-pic {
+  width: 40px!important;
+  height: auto;
+}
+
+.hackerearth {
+  color: #323754;
+}
+
+.hackerrank {
+  color: #2ec866;
+}
+
+.overlay {
+  height: 400px;
+}
+
+@media (max-width: 767px) and (orientation : portrait) {
+  .avatar-lg {
+    width: 100px;
+    float: none!important;
+  }
+
+  .carousel-content .p {
+    font-size: 1rem!important;
+  }
+
+  .carousel-content .display-4{ 
+    font-size: 2rem!important;
+  }
+
+  .carousel-content {
+    top: 20%!important;
+  }
+
+  .carousel-content div {
+    font-size: 1rem!important;
+  }  
+}  
+
+@media (max-height: 576px) and (orientation : landscape){  
+  .carousel-content .p {
+    font-size: 1rem!important;
+  }
+
+  .carousel-content .display-4{ 
+    font-size: 2rem!important;
+  }
+
+  .carousel-content {
+    top: 20%!important;
+  }
+
+  .carousel-content div {
+    font-size: 1rem!important;
+  }  
+}
+
+.carousel-content {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  left: 0;
+  z-index: 15;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+}
+
+.pull-right {
+  float: right;
+}
+.carousel-indicators, .carousel-control-prev, .carousel-control-next {
+  z-index: 30;
+}
+
+.pr-1 {
+    color: white;
+}
