@@ -45,14 +45,33 @@ async function getComments() {
 
   for (let i = 0; i <comments.length; ++i) {
     commentsListElement.appendChild(
-      createParaElement(comments[i].message + " --" + comments[i].author)
+      createComment(comments[i].message, comments[i].author)
     );
   }
 }
 
-/** Creates an <li> element containing text. */
+function createComment(message, author) {
+  const comment = createDivElement();
+  comment.append(createHeadingElement(author));
+  comment.append(createParaElement(message));
+  return comment;
+}
+
+/** Creates a <p> element containing text. */
 function createParaElement(text) {
   const paraElement = document.createElement('p');
   paraElement.innerText = text;
   return paraElement;
+}
+
+/** Creates a <strong> element containing text. */
+function createHeadingElement(text) {
+  const headingElement = document.createElement('strong');
+  headingElement.innerText = text;
+  return headingElement;
+}
+
+/** Creates a <div> element containing text. */
+function createDivElement(text) {
+  return document.createElement('div');
 }
