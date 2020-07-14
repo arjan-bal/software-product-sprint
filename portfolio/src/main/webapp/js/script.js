@@ -38,6 +38,26 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
+async function initializeComments() {
+  await getComments();
+  const response = await fetch('/auth-status');
+  const authData = await response.json();
+
+  if (!authData.isLoggedIn) {
+    const commentCreateForm = document.getElementById('comment-form');
+    commentCreateForm.hidden = true;
+    const logoutContainer = document.getElementById('logout-container');
+    logoutContainer.hidden = true;
+    const loginUrl = document.getElementById('login-url');
+    loginUrl.innerHTML = `<a href="${authData.authURL}"> here </a>`;
+  } else {
+    const loginContainer = document.getElementById('login-container');
+    loginContainer.hidden = true;
+    const logoutUrl = document.getElementById('logout-url');
+    logoutUrl.innerHTML = `<a href="${authData.authURL}"> here </a>`;
+  }
+}
+
 async function getComments() {
   const response = await fetch('/comments');
   const comments = await response.json();
