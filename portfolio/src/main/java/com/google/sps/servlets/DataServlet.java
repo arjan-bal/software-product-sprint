@@ -16,6 +16,9 @@ package com.google.sps.servlets;
 
 import com.google.gson.Gson;
 
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -45,11 +48,11 @@ public class DataServlet extends HttpServlet {
     List<Comment> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
-      String author = (String) entity.getProperty("author");
+      String authorEmail = (String) entity.getProperty("authorEmail");
       String message = (String) entity.getProperty("message");
       long timestamp = (long) entity.getProperty("timestamp");
 
-      Comment comment = new Comment(id, timestamp, author, message);
+      Comment comment = new Comment(id, timestamp, authorEmail, message);
       comments.add(comment);
     }
 
@@ -61,19 +64,27 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // check auth status
+    final UserService userService = UserServiceFactory.getUserService();
+
+    if (!userService.isUserLoggedIn()) {
+      response.sendRedirect("/");
+      return;
+    }
+
     String message = request.getParameter("message");
-    String author = request.getParameter("author");
+    String authorEmail = userService.getCurrentUser().getEmail();
     long timestamp = System.currentTimeMillis();
 
-    if (message == null || author == null) {
-      System.err.println("Message or name field missing");
+    if (message == null) {
+      System.err.println("Message field missing");
       response.setContentType("text/html");
-      response.getWriter().println("Message or name field missing.");
+      response.getWriter().println("Message field missing.");
       return;
     }
 
     Entity commentEntity = new Entity("Comment");
-    commentEntity.setProperty("author", author);
+    commentEntity.setProperty("authorEmail", authorEmail);
     commentEntity.setProperty("message", message);
     commentEntity.setProperty("timestamp", timestamp);
 

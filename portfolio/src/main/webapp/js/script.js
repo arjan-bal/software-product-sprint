@@ -65,14 +65,14 @@ async function getComments() {
 
   for (let i = 0; i <comments.length; ++i) {
     commentsListElement.appendChild(
-      createComment(comments[i].message, comments[i].author)
+      createComment(comments[i].message, comments[i].authorEmail)
     );
   }
 }
 
-function createComment(message, author) {
+function createComment(message, authorEmail) {
   const comment = createDivElement();
-  comment.append(createHeadingElement(author));
+  comment.append(createHeadingElement(authorEmail));
   comment.append(createParaElement(message));
   return comment;
 }

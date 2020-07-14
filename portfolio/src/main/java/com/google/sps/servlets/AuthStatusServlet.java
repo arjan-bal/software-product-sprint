@@ -7,7 +7,6 @@ import com.google.appengine.api.users.UserServiceFactory;
 import com.google.sps.data.AuthReply;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
