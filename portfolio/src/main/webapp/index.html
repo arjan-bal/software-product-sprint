@@ -17,7 +17,7 @@
     <!-- My custom styles -->
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body onload="getComments()">
+  <body onload="initializeComments()">
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar top-nav-collapse">      
       <div class="container">
@@ -484,7 +484,7 @@
         data-wow-delay="0.2s"></p>
 
         <!--  Submit Comment  -->
-        <div class="card">
+        <div class="card" id="comment-form">
           <h5 class="card-header text-center py-4">
             <strong>Leave a comment</strong>
           </h5>
@@ -492,12 +492,6 @@
           <div class="card-body px-lg-5 pt-0">
             <!-- Form -->
             <form class="text-center" style="color: #757575;" action="/comments" method="post">
-              <!-- Name -->
-              <div class="md-form mt-3">
-                <input type="text" name="author" id="author" class="form-control">
-                <label for="author">Name</label>
-              </div>
-
               <!--Message-->
               <div class="md-form">
                 <textarea name="message" id="message" class="form-control md-textarea" rows="3"></textarea>
@@ -512,7 +506,16 @@
             <!-- Form -->
           </div>
         </div>
-        <!-- Material form contact -->
+
+        <!-- Login URL -->
+        <div class="p-4 text-center" id="login-container">
+          To post a comment, login <a id="login-url">here</a>
+        </div>
+
+        <!-- Logout URL -->
+        <div class="p-4 text-center" id="logout-container">
+          To logout, click <a id="logout-url">here</a>
+        </div>
       </section>
     </div>
 

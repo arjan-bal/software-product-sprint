@@ -38,6 +38,26 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
+async function initializeComments() {
+  await getComments();
+  const response = await fetch('/auth-status');
+  const authData = await response.json();
+
+  if (!authData.isLoggedIn) {
+    const commentCreateForm = document.getElementById('comment-form');
+    commentCreateForm.hidden = true;
+    const logoutContainer = document.getElementById('logout-container');
+    logoutContainer.hidden = true;
+    const loginUrl = document.getElementById('login-url');
+    loginUrl.href = authData.authURL;
+  } else {
+    const loginContainer = document.getElementById('login-container');
+    loginContainer.hidden = true;
+    const logoutUrl = document.getElementById('logout-url');
+    logoutUrl.href = authData.authURL;
+  }
+}
+
 async function getComments() {
   const response = await fetch('/comments');
   const comments = await response.json();
@@ -45,14 +65,14 @@ async function getComments() {
 
   for (let i = 0; i <comments.length; ++i) {
     commentsListElement.appendChild(
-      createComment(comments[i].message, comments[i].author)
+      createComment(comments[i].message, comments[i].authorEmail)
     );
   }
 }
 
-function createComment(message, author) {
+function createComment(message, authorEmail) {
   const comment = createDivElement();
-  comment.append(createHeadingElement(author));
+  comment.append(createHeadingElement(authorEmail));
   comment.append(createParaElement(message));
   return comment;
 }
