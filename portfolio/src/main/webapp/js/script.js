@@ -49,12 +49,12 @@ async function initializeComments() {
     const logoutContainer = document.getElementById('logout-container');
     logoutContainer.hidden = true;
     const loginUrl = document.getElementById('login-url');
-    loginUrl.innerHTML = `<a href="${authData.authURL}"> here </a>`;
+    loginUrl.href = authData.authURL;
   } else {
     const loginContainer = document.getElementById('login-container');
     loginContainer.hidden = true;
     const logoutUrl = document.getElementById('logout-url');
-    logoutUrl.innerHTML = `<a href="${authData.authURL}"> here </a>`;
+    logoutUrl.href = authData.authURL;
   }
 }
 
